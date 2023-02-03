@@ -46,7 +46,7 @@ def main():
             'Critical': 'Red'
         }
         st.markdown(
-                '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Risk Score</p>',
+                '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Оценка риска</p>',
                 unsafe_allow_html=True)
 
         st.markdown('<span style="font-family:sans-serif; color:%s; font-size: 50px;">%.2f</span><span style="font-family:sans-serif; color:Black; font-size: 15px;">&nbsp;&nbsp;<i>%s</i></span>'%(color_map[severity], risk_score, severity), unsafe_allow_html=True)
