@@ -30,20 +30,20 @@ def main():
         st.pyplot(fig)
 
         # Select sample to analyze
-        severity_filter = st.selectbox('Filter by Severity (Optional)', ['None', 'Critical', 'High', 'Medium', 'Low'])
-        if severity_filter != "None":
+        severity_filter = st.selectbox('Фильтр по степени риска', ['Нет', 'Критический', 'Высокий', 'Средний', 'Низкий'])
+        if severity_filter != "Нет":
             X_test_malicious = X_test_malicious[X_test_malicious['Severity'] == severity_filter]
-        selected_attack = st.selectbox('See Alert Analytics:', X_test_malicious['sample_id'])
+        selected_attack = st.selectbox('Выберите инцидент:', X_test_malicious['sample_id'])
 
     col1, col2 = st.columns(2)
     with col1:
         risk_score = round(X_test_malicious[X_test_malicious['sample_id'] == selected_attack]['risk_score'].values[0], 1)
         severity = get_severity(risk_score)
         color_map = {
-            'Low': '#F1DB1C',
-            'Medium': '#F1891C',
-            'High': '#F15E1C',
-            'Critical': 'Red'
+            'Низкий': '#F1DB1C',
+            'Средний': '#F1891C',
+            'Высокий': '#F15E1C',
+            'Критический': 'Red'
         }
         st.markdown(
                 '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Оценка риска</p>',
