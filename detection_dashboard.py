@@ -13,7 +13,7 @@ def main():
     y_test_benign, y_test_preds_combined, X_train_new2, X_test_new2, X_train_new, \
     X_test_new, X_train, y_train_benign, y_train, kmeans_test_labels, df_crosstab = load_data()
 
-    st.title("Модуль обнаружения сетевых вторжений")
+    st.title("Обнаружение сетевых вторжений")
 
     with st.sidebar:
         "## Intrusion Alerts"
