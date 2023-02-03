@@ -13,7 +13,7 @@ def main():
     y_test_benign, y_test_preds_combined, X_train_new2, X_test_new2, X_train_new, \
     X_test_new, X_train, y_train_benign, y_train, kmeans_test_labels, df_crosstab = load_data()
 
-    st.title("Обнаружение сетевых вторжений")
+    st.title("Network Intrusion Detection Engine")
 
     with st.sidebar:
         "## Intrusion Alerts"
@@ -22,7 +22,7 @@ def main():
 
         # Plot attacks by severity
         df_sev_counts = pd.DataFrame(X_test_malicious['Severity'].value_counts(),
-                                     index=['Критический', 'Высокий', 'Средний', 'Низкий'])
+                                     index=['Critical', 'High', 'Medium', 'Low'])
         x_pos = np.arange(len(df_sev_counts['Severity'].values))
         fig = plt.figure(figsize=(4, 3))
         plt.bar(x_pos, df_sev_counts['Severity'].values, color=['Red', '#F15E1C', '#F1891C', '#F1DB1C'])
@@ -30,23 +30,23 @@ def main():
         st.pyplot(fig)
 
         # Select sample to analyze
-        severity_filter = st.selectbox('Фильтр по степени риска', ['Нет', 'Критический', 'Высокий', 'Средний', 'Низкий'])
-        if severity_filter != "Нет":
+        severity_filter = st.selectbox('Filter by Severity (Optional)', ['None', 'Critical', 'High', 'Medium', 'Low'])
+        if severity_filter != "None":
             X_test_malicious = X_test_malicious[X_test_malicious['Severity'] == severity_filter]
-        selected_attack = st.selectbox('Выберите инцидент:', X_test_malicious['sample_id'])
+        selected_attack = st.selectbox('See Alert Analytics:', X_test_malicious['sample_id'])
 
     col1, col2 = st.columns(2)
     with col1:
         risk_score = round(X_test_malicious[X_test_malicious['sample_id'] == selected_attack]['risk_score'].values[0], 1)
         severity = get_severity(risk_score)
         color_map = {
-            'Низкий': '#F1DB1C',
-            'Средний': '#F1891C',
-            'Высокий': '#F15E1C',
-            'Критический': 'Red'
+            'Low': '#F1DB1C',
+            'Medium': '#F1891C',
+            'High': '#F15E1C',
+            'Critical': 'Red'
         }
         st.markdown(
-                '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Оценка риска</p>',
+                '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Risk Score</p>',
                 unsafe_allow_html=True)
 
         st.markdown('<span style="font-family:sans-serif; color:%s; font-size: 50px;">%.2f</span><span style="font-family:sans-serif; color:Black; font-size: 15px;">&nbsp;&nbsp;<i>%s</i></span>'%(color_map[severity], risk_score, severity), unsafe_allow_html=True)
