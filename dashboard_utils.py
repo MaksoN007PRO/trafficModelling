@@ -179,14 +179,14 @@ def explain_instance(i, kmeans, kmeans_test_y, y_test_preds_new, kmeans_test_lab
                                'журналы сетевого трафика, чтобы подтвердить эту атаку. Если подтвержден DoS,'
                                ' немедленно свяжитесь со службой реагирования на инциденты, чтобы держать под контролем'
                                ' и блокировать нежелательный сетевой трафик',
-                        'r2l': 'For a Remote to Local (R2L) attack, we recommend locating the address '
-                               'of the remote machine and confirming it isn\'t a legitimate connection, temporarily disabling remote connection to the network, then identifying and patching any access points or backdoors.',
-                        'u2r': 'For a User to Root (U2R) attack, we recommend identifying the source of this traffic, isolating the host (if possible), '
-                               'blocking the traffic, and conducting a thorough security scan for malware, account breaches, etc.',
-                        'probe': 'For probing, we recommend confirming through network traffic examination, then '
-                                 'configuring a firewall to prevent probing of your servers.',
-                        'Outlier': 'For an outlier, we recommend further examination of the sample features in the table above, '
-                                   'which may help direct the security team to the root of the issue. Continue to monitor the traffic for malicious intent.'}
+                        'r2l': 'Для атак типа Remote to Local (R2L) мы рекомендуем определить адрес удаленной машины и подтвердить факт нелегетимного подключения, '
+                               'временно отключить возможность удаленного подключения к сети, а затем найти и устранить все бэкдоры и точки доступа.',
+                        'u2r': 'Для атак типа User to Root (U2R) мы рекомендуем определить источник этого трафика, изолировать хост (если возможно) '
+                               'заблокировать трафик и провести тщательную проверку безопасности на наличте вредоносных программ, взломов учетных записей и т.д.',
+                        'probe': 'Для атак типа Probe мы рекомендуем для начала проверить сетевой трафик на наличие вторжения и после чего '
+                                 'настроить межсетевой экран для предотвращения сканирования ваших серверов.',
+                        'Outlier': 'Для неопознанных атак мы рекомендуем дополнительно проанализировать выборку в таблице выше, которая сможет помочь '
+                                   'отделу безопасности правильно классифицировать атаку. Также продолжайте отслеживать сетевой трафик на наличие аномалий.'}
 
 
 
