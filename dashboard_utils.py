@@ -175,10 +175,10 @@ def explain_instance(i, kmeans, kmeans_test_y, y_test_preds_new, kmeans_test_lab
                      xgb_pipeline2, X_train_new, X_test_new, X_test_new2, col1, col2,
                      optimal_threshold = 0.0050058886):
 
-    remediation_dict = {'dos': 'For a Denial of Service (DoS) attack, we recommend analyzing '
-                               'network traffic logs to confirm this attack. If confirmed a DoS,'
-                               ' immediately contact Incident Response to control and block unwanted'
-                               ' traffic.',
+    remediation_dict = {'dos': 'Для атак типа «Отказ в обслуживании» (DoS) мы рекомендуем проанализировать '
+                               'журналы сетевого трафика, чтобы подтвердить эту атаку. Если подтвержден DoS,'
+                               ' немедленно свяжитесь со службой реагирования на инциденты, чтобы держать под контролем'
+                               ' и блокировать нежелательный сетевой трафик',
                         'r2l': 'For a Remote to Local (R2L) attack, we recommend locating the address '
                                'of the remote machine and confirming it isn\'t a legitimate connection, temporarily disabling remote connection to the network, then identifying and patching any access points or backdoors.',
                         'u2r': 'For a User to Root (U2R) attack, we recommend identifying the source of this traffic, isolating the host (if possible), '
