@@ -30,8 +30,8 @@ def main():
         st.pyplot(fig)
 
         # Select sample to analyze
-        severity_filter = st.selectbox('Фильтровать по степени серьезности (необязательно)', ['Нет', 'Critical', 'High', 'Medium', 'Low'])
-        if severity_filter != "Нет":
+        severity_filter = st.selectbox('Фильтровать по степени серьезности (необязательно)', ['None', 'Critical', 'High', 'Medium', 'Low'])
+        if severity_filter != "None":
             X_test_malicious = X_test_malicious[X_test_malicious['Severity'] == severity_filter]
         selected_attack = st.selectbox('Аналитика предупреждений:', X_test_malicious['sample_id'])
 
