@@ -13,12 +13,12 @@ def main():
     y_test_benign, y_test_preds_combined, X_train_new2, X_test_new2, X_train_new, \
     X_test_new, X_train, y_train_benign, y_train, kmeans_test_labels, df_crosstab = load_data()
 
-    st.title("Network Intrusion Detection Engine")
+    st.title("Обнаружение сетевых вторжений")
 
     with st.sidebar:
-        "## Intrusion Alerts"
+        "## Предупреждения о вторжении"
         st.dataframe(X_test_malicious[['sample_id', 'risk_score']], height=200)
-        "There were " + str(len(X_test_malicious)) + " malicious samples detected."
+        "Обнаружено " + str(len(X_test_malicious)) + " вредоносных образца."
 
         # Plot attacks by severity
         df_sev_counts = pd.DataFrame(X_test_malicious['Severity'].value_counts(),
@@ -30,10 +30,10 @@ def main():
         st.pyplot(fig)
 
         # Select sample to analyze
-        severity_filter = st.selectbox('Filter by Severity (Optional)', ['None', 'Critical', 'High', 'Medium', 'Low'])
-        if severity_filter != "None":
+        severity_filter = st.selectbox('Фильтровать по степени серьезности (необязательно)', ['None', 'Critical', 'High', 'Medium', 'Low'])
+        if severity_filter != "Нет":
             X_test_malicious = X_test_malicious[X_test_malicious['Severity'] == severity_filter]
-        selected_attack = st.selectbox('See Alert Analytics:', X_test_malicious['sample_id'])
+        selected_attack = st.selectbox('Аналитика предупреждений:', X_test_malicious['sample_id'])
 
     col1, col2 = st.columns(2)
     with col1:
