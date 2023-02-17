@@ -265,7 +265,7 @@ def explain_instance(i, kmeans, kmeans_test_y, y_test_preds_new, kmeans_test_lab
                 probs = sorted(probs.items(), key = lambda x: x[1], reverse = True)
                 category = probs[1][0]
             with col1:
-                st.markdown('<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Category</p>',
+                st.markdown('<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Категория</p>',
                     unsafe_allow_html=True)
                 st.markdown('<p style="font-family:sans-serif; color:#A00000; font-size: 30px;"><i>%s</i></p>' % (
                     class_dict[category]), unsafe_allow_html=True)
