@@ -221,15 +221,15 @@ def explain_instance(i, kmeans, kmeans_test_y, y_test_preds_new, kmeans_test_lab
             st.dataframe(df_features, height = 200)
         with col1:
             st.markdown(
-                '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Category</p>',
+                '<p style="font-family:sans-serif; color:#707070; font-size: 20px;">Категория</p>',
                 unsafe_allow_html=True)
             st.markdown('<p style="font-family:sans-serif; color:#A00000; font-size: 30px;"><i>%s</i></p>' % (
                 class_dict[reason]), unsafe_allow_html=True)
-        st.write('This sample is labeled as',
-              str(mal_dict[y_test_preds_combined[i]]) + ', part of which may be explained by its', feature_tup[0][0],
-              'of', str(X_test.iloc[i][feature_tup[0][0]]), ',', feature_tup[1][0], 'of', str(X_test.iloc[i][feature_tup[1][0]])+
-              ', and', feature_tup[2][0], 'of', str(X_test.iloc[i][feature_tup[2][0]]) + '.' + ' This attack is most likely classified as', reason + '.')
-        st.markdown('#### Remediation')
+        st.write('Приведенный пример определяется как',
+              str(mal_dict[y_test_preds_combined[i]]) + '. Это частично объясняется значениями', feature_tup[0][0],
+              'of', str(X_test.iloc[i][feature_tup[0][0]]), ',', feature_tup[1][0], '=', str(X_test.iloc[i][feature_tup[1][0]])+
+              ', и', feature_tup[2][0], '=', str(X_test.iloc[i][feature_tup[2][0]]) + '.' + ' Данная атака, скорее всего, классифицируется как', reason + '.')
+        st.markdown('#### Рекомендации')
         st.write(remediation_dict[reason])
     else:
         explainer = lime.lime_tabular.LimeTabularExplainer(X_train_new, class_names=['Benign', 'Malicious'], feature_names=list(
@@ -270,14 +270,14 @@ def explain_instance(i, kmeans, kmeans_test_y, y_test_preds_new, kmeans_test_lab
                 st.markdown('<p style="font-family:sans-serif; color:#A00000; font-size: 30px;"><i>%s</i></p>' % (
                     class_dict[category]), unsafe_allow_html=True)
 
-            st.write('Этот образец классифицируется как',
-                     str(mal_dict[y_test_preds_combined[i]]) + '. Это частично объясняется его значениями',
+            st.write('Приведенный пример определяется как',
+                     str(mal_dict[y_test_preds_combined[i]]) + '. Это частично объясняется значениями',
                      feature_tup[0][0], '=', str(X_test.iloc[i][feature_tup[0][0]]), ',', feature_tup[1][0], '=',
                      str(X_test.iloc[i][feature_tup[1][0]]) + ', и', feature_tup[2][0], '=',
-                     str(X_test.iloc[i][feature_tup[2][0]]) + '.' + ' Эта атака, скорее всего, классифицируется как',
+                     str(X_test.iloc[i][feature_tup[2][0]]) + '.' + ' Данная атака, скорее всего, классифицируется как',
                      class_dict[category] + '.')
 
-            st.markdown('#### Remediation')
+            st.markdown('#### Рекомендации')
             st.write(remediation_dict[category])
 
 
