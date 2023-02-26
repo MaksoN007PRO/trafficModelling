@@ -227,7 +227,7 @@ def explain_instance(i, kmeans, kmeans_test_y, y_test_preds_new, kmeans_test_lab
                 class_dict[reason]), unsafe_allow_html=True)
         st.write('Приведенный пример определяется как',
               str(mal_dict[y_test_preds_combined[i]]) + '. Это частично объясняется значениями', feature_tup[0][0],
-              'of', str(X_test.iloc[i][feature_tup[0][0]]), ',', feature_tup[1][0], '=', str(X_test.iloc[i][feature_tup[1][0]])+
+              '=', str(X_test.iloc[i][feature_tup[0][0]]), ',', feature_tup[1][0], '=', str(X_test.iloc[i][feature_tup[1][0]])+
               ', и', feature_tup[2][0], '=', str(X_test.iloc[i][feature_tup[2][0]]) + '.' + ' Данная атака, скорее всего, классифицируется как', reason + '.')
         st.markdown('#### Рекомендации')
         st.write(remediation_dict[reason])
